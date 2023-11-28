@@ -36,8 +36,8 @@ jobs:
       run: |
         set -e
         ./redirecting/01_redirect_stdout.sh || exit 1;
-        if [[ $(wc -l <matches.txt) -ne 3 ]]; then
-          echo "matches.txt should have 3 lines"
+        if [[ $(wc -l <matches.txt) -ne 4 ]]; then
+          echo "matches.txt should have 4 lines"
           exit 1
         fi
         ./redirecting/02_redirect_stderr.sh || exit 1;
