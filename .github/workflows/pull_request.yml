@@ -1,48 +1,15 @@
-name: Run shell scripts
+name: Test run v1
 
 on:
   pull_request:
     branches:
       - 'main'
-
+      
 jobs:
-  run-scripts:
-    runs-on: ubuntu-latest
-
+  test:
+    runs-on: ubuntu-18.04
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v2
-
-    - name: Run language scripts
-      run: |
-        set -e
-        ./bash_language/00_hello_world.sh || exit 1;
-        echo "Bob" | ./bash_language/01_user_input.sh || exit 1;
-        ./bash_language/02_variables.sh || exit 1;
-        ./bash_language/03_math.sh || exit 1;
-        ./bash_language/04_if_else.sh || exit 1;
-        ./bash_language/05_for_loops.sh || exit 1;
-        ./bash_language/06_functions.sh || exit 1;
-        ./bash_language/07_arguments.sh first_arg second_arg || exit 1;
-        ./bash_language/08_arrays.sh || exit 1;
-
-    - name: Run chaining scripts
-      run: |
-        set -e
-        ./chaining/01_and.sh || exit 1;
-        ./chaining/02_or.sh || exit 1;        
-
-    - name: Run chaining scripts
-      run: |
-        set -e
-        ./redirecting/01_redirect_stdout.sh || exit 1;
-        if [[ $(wc -l <matches.txt) -ne 4 ]]; then
-          echo "matches.txt should have 4 lines"
-          exit 1
-        fi
-        ./redirecting/02_redirect_stderr.sh || exit 1;
-        if [[ $(wc -l <contents.txt) -ne 1 ]]; then
-          echo "contents.txt should have 1 lines"
-          exit 1
-        fi        
-        ./redirecting/03_pipe.sh || exit 1;
+      - name: Show environment v1
+        run: env | grep ^GITHUB
+      - name: Show ref v1
+        run: echo "===============> Version from $GITHUB_REF"
