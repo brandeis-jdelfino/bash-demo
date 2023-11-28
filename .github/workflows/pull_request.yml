@@ -1,5 +1,4 @@
 name: Run shell scripts
-name: Test run v1
 
 on:
   pull_request:
