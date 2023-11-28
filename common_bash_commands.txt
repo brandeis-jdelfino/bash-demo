@@ -1,0 +1,10 @@
+ls - list the contents of the current directory
+pwd - print the current directory
+cd <path> - change the current directory
+echo <value> - print a string to the terminal
+cat <filename> - print the contents of a file to the terminal
+cp <origin> <destination> - move a file/directory from origin to destination
+rm <filename> - delete a file
+mkdir <name> - create a directory
+grep - search for a pattern in a file
+sed - match and manipulate text
