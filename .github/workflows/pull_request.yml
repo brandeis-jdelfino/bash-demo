@@ -1,0 +1,15 @@
+name: Test run v1
+
+on:
+  pull_request:
+    branches:
+      - 'main'
+      
+jobs:
+  test:
+    runs-on: ubuntu-18.04
+    steps:
+      - name: Show environment v1
+        run: env | grep ^GITHUB
+      - name: Show ref v1
+        run: echo "===============> Version from $GITHUB_REF"
