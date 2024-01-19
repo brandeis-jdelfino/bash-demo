@@ -1,9 +1,8 @@
-name: Test run v1
-
 on:
   pull_request:
     branches:
       - 'main'
+  workflow_dispatch:
       
 jobs:
   test:
